@@ -584,9 +584,9 @@ open class ScrollingNavigationController: UINavigationController, UIGestureRecog
     var frame = navigationBar.frame
     
     // Move the navigation bar
-    frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - delta)
-    navigationBar.frame = frame
-    
+   frame.origin = CGPoint(x: frame.origin.x, y: frame.origin.y - delta)
+   navigationBar.transform = CGAffineTransform(translationX: 0, y: navigationBar.transform.ty - delta)
+   
     // Resize the view if it does not extend under navigation bar
     if !isTopViewControllerExtendedUnderNavigationBar {
       let navBarY = frame.origin.y + frame.size.height
